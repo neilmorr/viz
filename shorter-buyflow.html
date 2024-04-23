@@ -71,23 +71,27 @@
 								<p>
 									We removed the registration confirmation step during the subscription purchase and activation flows as we realized (based on Allison’s observation) that it was unnecessary and confusing, thus impeding progress to checkout. Following the change, conversion increased ~3X.
 								</p>
-								
+								<section>
+									<header>
+										<h3>Opportunity Discovery</h3>
+									</header>
+									<p>
+										Most of what we build is based on user insights, but this one came from our lead designer, who noticed a flaw in our purchase flow.
+									</p>
+									<p>
+										When a new user creates an account, they are taken to a confirmation page. The problem our designer noticed is that we were presenting this step to users who were attempting to subscribe, thus impeding their progress to checkout. To make matters worse, the confirmation page encouraged users to leave the flow and verify their account.
+									</p>
+									<p>This was the oppostive of what we wanted from this segment of users, which was to make it as easy as possible to subscribe. When looking at our data, we realized many users were dropping out of the flow at this point.</p>
+								</section>
 							
 								<section>
 									<header>
 										<h3>What the team built</h3>
 									</header>
 									<p>
-										Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-										placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-										eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-										elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-										sit amet nullam consequat feugiat dolore tempus.
-										Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-										placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-										eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-										elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor.
+										We realized the benefit of sending users directly to checkout far outweighed not showing them the confirmation step. So the change was simple - introduce logic that does not show the confirmation step to users who are attempting to subscribe.
 									</p>
+									<img src="" alt="changes">
 									
 										
 								
