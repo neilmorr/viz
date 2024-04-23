@@ -10,6 +10,12 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+		/* Initially hide the chart container */
+		.flourish-embed {
+		visibility: hidden;
+		}
+		</style>
 	</head>
 	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
@@ -59,8 +65,8 @@
 							<article class="box post">
 								<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
 								<header>
-									<h2>Simplifying the buyflow</h2>
-									<p>Removing a step led to 3X conversion improvement</p>
+									<h2>Passwordless Login</h2>
+									<p>Making login easier</p>
 								</header>
 								<p>
 									Vestibulum scelerisque ultricies libero id hendrerit. Vivamus malesuada quam faucibus ante dignissim auctor
@@ -93,6 +99,8 @@
 										eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
 										elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor.
 									</p>
+									<div class="flourish-embed flourish-chart" data-src="visualisation/17639528"></div>
+									
 									<p>
 										Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
 										eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
@@ -258,6 +266,37 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<script>
+    const chartContainer = document.querySelector('.flourish-embed');
+    const loadChartButton = document.getElementById('load-chart-btn');
+
+    // Function to load the chart
+    const loadChart = () => {
+      if (!window.Flourish) {
+        console.error("Flourish script not loaded.");
+        return;
+      }
+      window.Flourish.loadEmbed(chartContainer);
+    };
+
+    // Intersection Observer callback function
+    const handleIntersection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Make the chart container visible
+          chartContainer.style.visibility = 'visible';
+          // Load the chart when it's fully in the viewport
+          loadChart();
+          observer.unobserve(chartContainer);
+        }
+      });
+    };
+
+    // Intersection Observer setup with threshold 1
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.2 });
+    observer.observe(chartContainer);
+  </script>
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
 
 	</body>
 </html>
